@@ -20,8 +20,6 @@ DEVICE_PATH := device/samsung/chagall-common
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(DEVICE_PATH)/overlay
-PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
-    device/samsung/chagall-common/overlay/hardware/samsung/AdvancedDisplay
 
 # AdvancedDisplay (MDNIE)
 PRODUCT_PACKAGES += \
@@ -57,9 +55,6 @@ PRODUCT_COPY_FILES += \
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml
-
-# Properties
--include $(LOCAL_PATH)/system_prop.mk
 
 # Shipping API level
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_k.mk)
