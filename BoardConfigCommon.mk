@@ -19,9 +19,6 @@ include device/samsung/universal5420-common/BoardConfigCommon.mk
 
 DEVICE_PATH := device/samsung/chagall-common
 
-# Include path
-TARGET_SPECIFIC_HEADER_PATH += $(DEVICE_PATH)/include
-
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
 
@@ -31,9 +28,18 @@ TARGET_SCREEN_DENSITY := 320
 # HIDL
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
+# Include path
+TARGET_SPECIFIC_HEADER_PATH += $(DEVICE_PATH)/include
+
+# Init
+TARGET_INIT_VENDOR_LIB := libinit_chagall
+
 # Legacy blobs support
 TARGET_PROCESS_SDK_VERSION_OVERRIDE += \
     /system/vendor/bin/vcsFPService=22
+
+# Properties
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
 # Inherit from the proprietary version
 include vendor/samsung/chagall-common/BoardConfigVendor.mk
