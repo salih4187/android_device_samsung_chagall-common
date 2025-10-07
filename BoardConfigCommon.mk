@@ -38,8 +38,5 @@ TARGET_INIT_VENDOR_LIB := libinit_chagall
 TARGET_PROCESS_SDK_VERSION_OVERRIDE += \
     /system/vendor/bin/vcsFPService=22
 
-# Properties
-TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
-
 # Inherit from the proprietary version
 include vendor/samsung/chagall-common/BoardConfigVendor.mk
